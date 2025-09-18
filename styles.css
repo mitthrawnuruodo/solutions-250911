@@ -1,0 +1,194 @@
+/* =========================
+   A) Base Page Styling
+   ========================= */
+:root {
+  --text: #222;
+  --muted: #666;
+  --brand: #0a3d91;     /* dark blue for links/buttons */
+  --brand-2: #e5f0ff;   /* light brand tint */
+  --border: #ccc;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  line-height: 1.5;
+  margin: 20px;
+}
+
+/* Headings + global text tweaks (H) */
+h1 {
+  text-align: center;
+  margin: 0 0 32px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,.15);   /* text-shadow demo */
+}
+
+h2 {
+  text-transform: uppercase;                  /* transform demo */
+  letter-spacing: 2px;                        /* letter-spacing demo */
+  margin: 24px 0 12px;
+}
+
+p { text-align: justify; }                    /* justify demo */
+
+/* Section spacing (B-1) */
+section { margin-bottom: 32px; }
+
+/* Horizontal rule (just style) */
+hr { border: none; height: 1px; background: var(--border); margin: 20px 0; }
+
+/* =========================
+   B) Header & Navigation
+   ========================= */
+header { text-align: center; }
+
+nav a {
+  display: inline-block;                      /* inline-block demo */
+  margin: 0 10px;
+  text-decoration: none;                      /* text-decoration demo */
+  color: var(--brand);
+  padding: 4px 6px;
+  transition: color .3s ease;                 /* F-1 */
+}
+nav a:hover,
+nav a:focus { color: #062a63; text-decoration: underline; }
+
+/* =========================
+   C) Buttons (.btn + #large-btn)
+   ========================= */
+.btn {
+  display: inline-block;                      /* keep width/height effective */
+  background: var(--brand-2);
+  color: var(--brand);
+  border: 1px solid var(--brand);
+  padding: 10px 20px;                         /* C-3 */
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 6px;
+  transition: background .2s ease, color .2s ease, transform .12s ease; /* F-3 baseline */
+}
+.btn:hover { background: #dce9ff; transform: translateY(-1px); }
+
+/* Special button via ID (specificity demo) */
+#large-btn {
+  width: 200px;
+  height: 50px;
+  font-size: 18px;
+}
+
+/* =========================
+   D) Images (keep aspect ratio, responsive)
+   ========================= */
+img {
+  max-width: 100%;
+  height: auto;                               /* preserve aspect ratio */
+  border: 2px solid var(--border);
+  display: inline-block;                      /* <img> is inline by default; explicit here */
+}
+
+/* For figure + figcaption niceties */
+figure { margin: 16px auto; text-align: center; }
+figcaption { color: var(--muted); font-size: 0.9rem; }
+
+/* =========================
+   E) Lists
+   ========================= */
+ul { padding-left: 1.2rem; }
+ul li { margin-bottom: 5px; }                 /* B-2 */
+ul ul { list-style-type: square; }            /* nested list style demo */
+
+/* =========================
+   F) Tables
+   ========================= */
+table {
+  width: 100%;
+  max-width: 640px;
+  border-collapse: collapse;                  /* collapse borders */
+  margin: 12px 0;
+}
+
+th, td {
+  border: 1px solid var(--border);            /* A-2 */
+  padding: 10px;                              /* C-2 */
+  text-align: left;
+}
+
+thead th {
+  background: #fff6cc;
+  font-weight: bold;
+}
+
+/* zebra striping for readability */
+tbody tr:nth-child(even) { background: #fafafa; }
+
+/* =========================
+   G) Forms
+   ========================= */
+form { max-width: 480px; }
+
+label { display: inline-block; margin: 8px 0 4px; }
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;                              /* C-3 */
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font: inherit;
+  margin-bottom: 10px;
+}
+
+textarea { min-height: 120px; resize: vertical; }
+
+/* Focus (A-3) + smooth feedback */
+input:focus,
+textarea:focus {
+  outline: none;
+  border: 2px dashed green;
+  background: #fbfffb;
+  transition: border .15s ease;
+}
+
+/* =========================
+   H) Text Styling (already shown in headings/paragraphs above)
+   ========================= */
+
+/* =========================
+   I) Optional: Card wrapper (About page)
+   ========================= */
+.card {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;                             /* center the card */
+  background: #fff;
+  padding: 20px;                               /* C-1 equivalent inside card */
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+
+/* =========================
+   Extra teaching points
+   ========================= */
+/* Base border & padding around main content (A-1, C-1) */
+main {
+  border: 2px solid darkblue;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Attribute selector demo: style external links differently, if any appear */
+a[href^="http"]::after {
+  content: " ↗";
+  font-size: 0.9em;
+  color: var(--muted);
+}
